@@ -1,6 +1,6 @@
 #!/usr/bin/python3
 '''
-empty square classes that defines a square.
+Empty square classes that defines a square.
 '''
 
 
