@@ -6,7 +6,7 @@ empty square classes that defines a square.
 
 class Square:
     '''
-        Square defines a sqaures
+    Square defines a sqaures
     '''
     def __init__(self, size):
         '''
