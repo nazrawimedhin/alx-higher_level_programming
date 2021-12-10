@@ -6,11 +6,12 @@ Non empty class.
 
 class Square:
     """
-    A class that defines a square by its size.
+        A class that defines a square by its size.
     """
     def __init__(self, size=0):
         """
-        Method to initialize the square object.
+            Args:
+                size (int): size of a square.
         """
         if not isinstance(size, int):
             raise TypeError("size must be an integer")
