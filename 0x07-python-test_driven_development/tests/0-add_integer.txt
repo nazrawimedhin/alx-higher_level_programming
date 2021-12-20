@@ -3,7 +3,6 @@ importing the module and the function.
     >>> add_integer = __import__('0-add_integer').add_integer
 
 using the function.
-------------------
 
 case 1:
     >>> add_integer(1, 5)
