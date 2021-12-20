@@ -1,0 +1,25 @@
+Importing the module and the function.
+
+    >>> say_my_name = __import__('3-say_my_name').say_my_name
+
+Using the function.
+
+case 1:
+    >>> say_my_name('abiti')
+    My name is abiti 
+
+case 2:
+    >>> say_my_name('abiti', 'hello')
+    My name is abiti hello
+
+case 3:
+    >>> say_my_name(123)
+    Traceback (most recent call last):
+    ...
+    TypeError: first_name must be a string
+
+case 4:
+    >>> say_my_name('Hi', 123)
+    Traceback (most recent call last):
+    ...
+    TypeError: last_name must be a string
