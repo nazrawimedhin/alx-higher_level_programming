@@ -2,4 +2,4 @@ def lookup(obj):
     """
     Looks for attributes inside of the passed object.
     """
-    return obj.__dict__
+    return list(obj.__dict__)
