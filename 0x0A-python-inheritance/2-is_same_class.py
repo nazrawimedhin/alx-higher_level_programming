@@ -1,4 +1,10 @@
 #!/usr/bin/python3
+
+"""
+A function that checks the instance of the object 
+"""
+
+
 def is_same_class(obj, a_class):
     """[A function that checks the instance of the object]
 
