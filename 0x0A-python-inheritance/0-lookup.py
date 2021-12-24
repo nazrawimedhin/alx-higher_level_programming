@@ -8,4 +8,4 @@ def lookup(obj):
     Returns:
         list of attribute 
     """
-    return list(obj.__dict__)
+    return dir(obj)
