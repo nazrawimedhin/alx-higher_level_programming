@@ -1,3 +1,4 @@
+#!/usr/bin/python3
 """
 A function that write a text into a file.
 """

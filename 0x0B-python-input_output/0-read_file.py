@@ -1,3 +1,4 @@
+#!/usr/bin/python3
 """
 A function which reads a file
 """

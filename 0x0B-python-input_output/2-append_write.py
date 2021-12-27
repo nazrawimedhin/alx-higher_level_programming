@@ -1,3 +1,4 @@
+#!/usr/bin/python3
 """
 A function that appends a text into a file.
 """
