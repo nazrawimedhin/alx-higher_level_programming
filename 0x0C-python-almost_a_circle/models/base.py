@@ -1,4 +1,7 @@
 #!/usr/bin/python3
+"""
+This is a base class for the project
+"""
 class Base:
     """
     Base class for this project
