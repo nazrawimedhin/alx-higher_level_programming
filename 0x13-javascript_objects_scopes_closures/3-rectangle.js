@@ -5,7 +5,8 @@ class Rectangle{
             this.width = w;
             this.height = h;
         }
-        function print(){
+    }
+        print(){
             let rect = '';
             for (let i = 0; i < h; i++) {
                 for (let j = 0; j < w; j++) {
@@ -15,7 +16,6 @@ class Rectangle{
             }
             console.log(rect);
         }
-    }
-}
+};
 
 module.exports = Rectangle;
