@@ -18,25 +18,9 @@ class Rectangle{
         }
 
         rotate(){
-            let rect = '';
-            for (let i = 0; i < w; i++) {
-                for (let j = 0; j < h; j++) {
-                    rect += 'X';
-                }
-                rect += '\n';
-            }
-            console.log(rect);
-        }
-        
-        print(){
-            let rect = '';
-            for (let i = 0; i < 2*h; i++) {
-                for (let j = 0; j < 2*w; j++) {
-                    rect += 'X';
-                }
-                rect += '\n';
-            }
-            console.log(rect);
+            const aux = this.width;
+            this.width = this.height;
+            this.height = aux;
         }
 };
 
