@@ -15,4 +15,4 @@ class Square extends square5 {
         }
         console.log(square);
     }
-}
+};
