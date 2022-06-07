@@ -1,17 +1,17 @@
 #!/usr/bin/node
-const request = require('request');
-const url = 'http://swapi.co/api/films/' + process.argv[2];
 
-request(url, function (err, response, body) {
-  if (err == null) {
-    const resp = JSON.parse(body);
-    const characters = resp.characters;
-    for (let i = 0; i < characters.length; i++) {
-      request(characters[i], function (err, response, body) {
-        if (err == null) {
-          console.log(JSON.parse(body).name);
-        }
-      });
-    }
+const request = require('request');
+
+request('http://swapi.co/api/films/' + process.argv[2], function (error, response, body) {
+  if (error) {
+    console.error(error);
   }
+  JSON.parse(body).characters.forEach(function (url, callback) {
+    request(url, function (error, response, body) {
+      if (error) {
+        console.error(error);
+      }
+      console.log(JSON.parse(body).name);
+    });
+  });
 });
