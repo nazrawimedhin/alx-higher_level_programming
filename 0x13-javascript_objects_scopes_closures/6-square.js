@@ -1,19 +1,13 @@
 #!/usr/bin/node
-const square5 = require('./5-square');
+const square = require('./5-square');
 
-class Square extends square5 {
-  charprint (c) {
+class Square extends square {
+  charPrint (c) {
     if (c === undefined) {
-      c = 'X';
+      console.log(('X'.repeat(this.width) + '\n').repeat(this.height - 1) + 'X'.repeat(this.width));
+    } else {
+      console.log((c.repeat(this.width) + '\n').repeat(this.height - 1) + c.repeat(this.width));
     }
-    let square = '';
-    for (let i = 0; i < c; i++) {
-      let j;
-      for (j = 0; j < c; j++) {
-        square += c;
-      }
-      square += '\n';
-    }
-    console.log(square);
   }
 }
+module.exports = Square;
