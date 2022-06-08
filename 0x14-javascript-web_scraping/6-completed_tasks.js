@@ -2,21 +2,24 @@
 
 const request = require('request');
 
-request(process.argv[2], function (error, response, body) {
-  if (error) {
-    console.error(error);
-  }
-  const dict = JSON.parse(body).reduce((acc, elem) => {
-    if (!acc[elem.userId]) {
-      if (elem.completed) {
-        acc[elem.userId] = 1;
+request(process.argv[2], function (err, _res, body) {
+  if (err) {
+    console.log(err);
+  } else {
+    const completedTasksByUsers = {};
+    body = JSON.parse(body);
+
+    for (let i = 0; i < body.length; ++i) {
+      const userId = body[i].userId;
+      const completed = body[i].completed;
+
+      if (completed && !completedTasksByUsers[userId]) {
+        completedTasksByUsers[userId] = 0;
       }
-    } else {
-      if (elem.completed) {
-        acc[elem.userId] += 1;
-      }
+
+      if (completed) ++completedTasksByUsers[userId];
     }
-    return acc;
-  }, {});
-  console.log(dict);
+
+    console.log(completedTasksByUsers);
+  }
 });
