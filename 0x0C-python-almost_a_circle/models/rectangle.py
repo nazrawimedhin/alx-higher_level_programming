@@ -18,6 +18,7 @@ class Rectangle(Base):
 
     def __init__(self, width, height, x=0, y=0, id=None):
         """Initializes a Rectangle instance.
+
         Args:
             - __width: width
             - __height: height
@@ -98,6 +99,7 @@ class Rectangle(Base):
 
     def area(self):
         """Calculates the area of a Rectangle instance.
+
         Returns: area
         """
 
@@ -124,6 +126,7 @@ class Rectangle(Base):
 
     def update(self, *args, **kwargs):
         """Updates attributes of an instance.
+
         Args:
             - id attribute
             - width attribute

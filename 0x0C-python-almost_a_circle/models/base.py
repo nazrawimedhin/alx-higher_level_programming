@@ -17,6 +17,7 @@ class Base:
 
     def __init__(self, id=None):
         """Initialization of a Base instance.
+
         Args:
             - id: id of the instance
         """
@@ -32,8 +33,10 @@ class Base:
     @staticmethod
     def to_json_string(list_dictionaries):
         """Returns a JSON representation of list_dictionaries.
+
         Args:
             - list_dictionaries: list of dicts
+
         Returns: JSON representation of the list
         """
 
@@ -48,6 +51,7 @@ class Base:
     def save_to_file(cls, list_objs):
         """Writes the JSON string representation of
         list_objs to a file.
+
         Args:
             - list_objs: list of instances who inherits of Base
         """
@@ -68,6 +72,7 @@ class Base:
     @staticmethod
     def from_json_string(json_string):
         """Returns the list of the JSON string representation json_string.
+
         Args:
             - json_string: string to convert to list
         """
@@ -82,8 +87,10 @@ class Base:
     @classmethod
     def create(cls, **dictionary):
         """Returns an instance with all attributes already set.
+
         Args:
             - dictionary: used as **kwargs
+
         Returns: instance created
         """
         if cls.__name__ == 'Rectangle':
@@ -112,6 +119,7 @@ class Base:
     def save_to_file_csv(cls, list_objs):
         """Serializes list_objs in CSV format
         and saves it to a file.
+
         Args:
             - list_objs: list of instances
         """
@@ -136,6 +144,7 @@ class Base:
     @classmethod
     def load_from_file_csv(cls):
         """Deserializes CSV format from a file.
+
         Returns: list of instances
         """
 
@@ -161,6 +170,7 @@ class Base:
     def draw(list_rectangles, list_squares):
         """Opens a Turtle window and draws
         rectangles and squares.
+
         Args:
             - list_rectangles: list of Rectangle instances
             - list_squares: list of Square instances

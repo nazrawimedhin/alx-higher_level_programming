@@ -19,6 +19,7 @@ class Square(Rectangle):
 
     def __init__(self, size, x=0, y=0, id=None):
         """Initializes a Square instance.
+
         Args:
             - __size: size
             - __x: position
@@ -55,6 +56,7 @@ class Square(Rectangle):
 
     def update(self, *args, **kwargs):
         """Updates attributes of an instance.
+
         Args:
             - id attribute
             - size attribute
