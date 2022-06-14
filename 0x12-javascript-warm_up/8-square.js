@@ -1,17 +1,11 @@
 #!/usr/bin/node
-
-const argv = require('process').argv;
-
-const squareSize = parseInt(argv[2]);
-
-if (isNaN(squareSize)) {
+const size = Math.floor(Number(process.argv[2]));
+if (isNaN(size)) {
   console.log('Missing size');
 } else {
-  for (let i = 0; i < squareSize; i++) {
-    let square = '';
-    for (let j = 0; j < squareSize; j++) {
-      square += 'X';
-    }
-    console.log(square);
+  for (let r = 0; r < size; r++) {
+    let row = '';
+    for (let c = 0; c < size; c++) row += 'X';
+    console.log(row);
   }
 }
