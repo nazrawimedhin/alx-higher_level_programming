@@ -1,28 +1,19 @@
 #!/usr/bin/python3
-"""
-Module 2-my_filter_states
-Takes 4 arguments: username, password and database name to connect to the mysql
-serve running on localhost port 3306, and the name of
-the state being looked for.
-"""
+"""takes in an argument and displays all values
+in the states table of hbtn_0e_0_usa
+where name matches the argument"""
 
-from sys import argv
-import MySQLdb
+if __name__ == '__main__':
 
+    import MySQLdb
+    import sys
 
-def main():
-    """
-    Program starts here. Lists states with matching name passed as
-    the 4th argument from the database hbtn_0e_0_usa
-    """
-    db = MySQLdb.connect(host="localhost", port=3306,
-                         user=argv[1], passwd=argv[2], db=argv[3])
-    c = db.cursor()
-    c.execute(
-        "SELECT * FROM states WHERE name='{}' ORDER BY id".format(argv[4]))
-    for i in c.fetchall():
-        print(i)
+    db = MySQLdb.connect(host='localhost', port=3306,
+                         user=sys.argv[1], passwd=sys.argv[2], db=sys.argv[3])
 
-
-if __name__ == "__main__":
-    main()
+    cur = db.cursor()
+    cur.execute("SELECT * FROM states WHERE name LIKE BINARY '{}'\
+                ORDER BY states.id ASC".format(sys.argv[4]))
+    rows = cur.fetchall()
+    for row in rows:
+        print(row)

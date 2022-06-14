@@ -1,25 +1,16 @@
 #!/usr/bin/python3
-"""
-Module 0-select_states.py
-Takes 3 arguments: username, password and database name to connect to the mysql
-serve running on localhost port 3306.
-"""
+"""lists all states from the database hbtn_0e_0_usa"""
 
-from sys import argv
-import MySQLdb
+if __name__ == '__main__':
 
+    import MySQLdb
+    import sys
 
-def main():
-    """
-    Program starts here. Lists all states from the database hbtn_0e_0_usa
-    """
-    db = MySQLdb.connect(host="localhost", port=3306,
-                         user=argv[1], passwd=argv[2], db=argv[3])
-    c = db.cursor()
-    c.execute("SELECT * FROM states ORDER BY id")
-    for i in c.fetchall():
-        print(i)
+    db = MySQLdb.connect(host='localhost', port=3306,
+                         user=sys.argv[1], passwd=sys.argv[2], db=sys.argv[3])
 
-
-if __name__ == "__main__":
-    main()
+    cur = db.cursor()
+    cur.execute("SELECT * FROM states ORDER BY states.id ASC;")
+    rows = cur.fetchall()
+    for row in rows:
+        print(row)

@@ -1,33 +1,22 @@
 #!/usr/bin/python3
-"""Module 13-model_state_delete_a.py
-Deletes all rows in table states which contain 'a' in their names."""
-from sys import argv
-from sqlalchemy import create_engine
-from sqlalchemy.orm import sessionmaker
-from model_state import Base, State
-
-
-def main():
-    """Program starts here.
-    Load the 'states' table using SQLAlchemy. Then, find all rows in
-    the table which contain 'a' in their names. If any is found, it
-    is deleted."""
-    engine = create_engine('mysql+mysqldb://{}:{}@localhost:3306/{}'.format(
-        argv[1], argv[2], argv[3]), pool_pre_ping=True)
-
-    Base.metadata.create_all(engine)
-    Session = sessionmaker(bind=engine)
-    session = Session()
-
-    states_with_a = session.query(State).filter(State.name.like("%a%")).all()
-
-    #  Delete all states_with_a objects
-    for state in states_with_a:
-        session.delete(state)
-    session.commit()
-
-    session.close()
-
+"""deletes all State objects with a name containing
+the letter a from the database hbtn_0e_6_usa"""
 
 if __name__ == "__main__":
-    main()
+
+    import sys
+    from model_state import Base, State
+    from sqlalchemy import create_engine
+    from sqlalchemy.orm import Session
+    from sqlalchemy.schema import Table
+
+    engine = create_engine('mysql+mysqldb://{}:{}@localhost/{}'
+                           .format(sys.argv[1], sys.argv[2],
+                                   sys.argv[3]), pool_pre_ping=True)
+    Base.metadata.create_all(engine)
+
+    session = Session(engine)
+    for state in session.query(State).filter(State.name.like('%a%')):
+        session.delete(state)
+    session.commit()
+    session.close()
