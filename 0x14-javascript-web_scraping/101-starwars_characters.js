@@ -1,22 +1,24 @@
 #!/usr/bin/node
-const request = require('request');
-const { argv } = require('process');
+// Prints all characters of a Star Wars movie in order of the list of characters
+// in /films/, with the episode's number passed as argument
 
-const url = 'https://swapi-api.hbtn.io/api/films/' + argv[2];
-request(url, function (err, res) {
-  if (err) console.log(err);
-  else {
-    const film = JSON.parse(res.body);
-    const characters = [];
-    film.characters.forEach(function (characterUrl) {
-      request(characterUrl, function (err, res) {
-        if (err) console.log(err);
-        else {
-          const character = JSON.parse(res.body);
-          characters.push(character.name);
+const request = require('request');
+const episode = process.argv[2];
+
+request('https://swapi-api.hbtn.io/api/films/' + episode, (error, response, body) => {
+  if (error) {
+    console.log(error);
+  } else {
+    const json = JSON.parse(body);
+    json.characters.forEach(character => {
+      request(character, (error, response, body) => {
+        if (error) {
+          console.log(error);
+        } else {
+          const json = JSON.parse(body);
+          console.log(json.name);
         }
       });
     });
-    characters.forEach(console.log);
   }
 });
