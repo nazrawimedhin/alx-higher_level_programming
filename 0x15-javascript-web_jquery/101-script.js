@@ -1,13 +1,13 @@
-window.addEventListener('DOMContentLoaded', function () {
-  $('DIV#add_item').click(function () {
-    $('<li>Item</li>').appendTo('UL.my_list');
+$(function () {
+  $('div#add_item').bind('click', function () {
+    $('ul.my_list').append('<li>Item</li>');
   });
-  $('DIV#remove_item').click(function () {
-    $('.my_list li').last().remove();
+
+  $('div#remove_item').bind('click', function () {
+    $('ul.my_list li:last-child').remove();
   });
-  $('DIV#clear_list').click(function () {
-    $('.my_list li').map(function () {
-      this.remove();
-    });
+
+  $('div#clear_list').bind('click', function () {
+    $('ul.my_list').empty();
   });
 });

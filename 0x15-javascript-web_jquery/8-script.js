@@ -1,5 +1,15 @@
-$.get('https://swapi.co/api/films/?format=json', function (data) {
-  $.each(data.results, function (index, value) {
-    $('<li>' + value.title + '</li>').appendTo('UL#list_movies');
+$(document).ready(function () {
+  const salutUrl = 'https://fourtonfish.com/hellosalut/?lang=fr';
+  const $helloElement = $('div#hello');
+
+  function getSalut () {
+    return $.get({
+      url: salutUrl,
+      dataType: 'json'
+    });
+  }
+
+  getSalut().then((res) => {
+    $helloElement.text(res.hello);
   });
 });
